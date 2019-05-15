@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App correctly renders after relaunch 1`] = `
+Array [
+  <article
+    className="small-movie-card catalog__movies-card "
+    onMouseOver={[Function]}
+  >
+    <button
+      className="small-movie-card__play-btn"
+      onClick={[Function]}
+      type="button"
+    >
+      Play
+    </button>
+    <div
+      className="small-movie-card__image"
+    >
+      <img
+        alt="Harry Potter"
+        height="175"
+        src="https://st.kp.yandex.net/images/film_iphone/iphone360_689.jpg"
+        width="280"
+      />
+    </div>
+    <h3
+      className="small-movie-card__title"
+    >
+      <a
+        className="small-movie-card__link"
+        href=""
+      >
+        Harry Potter
+      </a>
+    </h3>
+  </article>,
+  <article
+    className="small-movie-card catalog__movies-card "
+    onMouseOver={[Function]}
+  >
+    <button
+      className="small-movie-card__play-btn"
+      onClick={[Function]}
+      type="button"
+    >
+      Play
+    </button>
+    <div
+      className="small-movie-card__image"
+    >
+      <img
+        alt="Harry Potter2"
+        height="175"
+        src="https://upload.wikimedia.org/wikipedia/ru/thumb/0/0b/Harry_Potter_and_the_Chamber_of_Secrets_%E2%80%94_movie.jpg/219px-Harry_Potter_and_the_Chamber_of_Secrets_%E2%80%94_movie.jpg"
+        width="280"
+      />
+    </div>
+    <h3
+      className="small-movie-card__title"
+    >
+      <a
+        className="small-movie-card__link"
+        href=""
+      >
+        Harry Potter2
+      </a>
+    </h3>
+  </article>,
+]
+`;
