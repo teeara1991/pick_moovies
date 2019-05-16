@@ -9,11 +9,8 @@ export default class MovieList extends React.Component {
       activeMovieCard: -1
     };
   }
-
   _handleChangeActiveMovieCard(index) {
     this.setState({activeMovieCard: index});
-  }
-  _handleCallbackFunc() {
   }
 
   render() {
@@ -23,7 +20,6 @@ export default class MovieList extends React.Component {
         title={value.title}
         logo={value.logo}
         links={value.links}
-        onPreview={() => this._handleCallbackFunc()}
         isActive={index === this.state.activeMovieCard}
         onChangeState={() => this._handleChangeActiveMovieCard(index)}
       />;

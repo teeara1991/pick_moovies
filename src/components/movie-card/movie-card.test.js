@@ -9,7 +9,6 @@ it(`MovieCard correctly renders after relaunch`, () => {
         title={`Fantastic Beasts`}
         logo={``}
         links={``}
-        onPreview={() => {}}
         isActive={true}
         onChangeState={() =>{}}
       />)

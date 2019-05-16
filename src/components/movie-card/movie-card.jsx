@@ -10,18 +10,24 @@ export default class MovieCard extends React.PureComponent {
     this.state = {
       isPlaying: false,
     };
+    this._handleChangeState = this._handleChangeState.bind(this);
+  }
+  _handleChangeState() {
+    setTimeout(function () {
+      this.setState({isPlaying: !this.state.isPlaying});
+    }.bind(this), 1000);
   }
   render() {
-    const {onChangeState, isActive, onPreview, logo, title, links} = this.props;
+    const {isActive, logo, title, links} = this.props;
     const {isPlaying} = this.state;
-    return <article onMouseOver={onChangeState} className={`small-movie-card catalog__movies-card ${isActive ? `active` : ``}`}>
-      {/* <button className="small-movie-card__play-btn" type="button" onClick={onPreview}>Play</button> */}
-      <VideoPlayer
-        isPlaying={isPlaying}
-        onPlayButtonClick={() => this.setState({isPlaying: !isPlaying})}
-        src={links}
-      />
-      <div className="small-movie-card__image"><img src={logo} alt={title} width="280" height="175" />
+    return <article onMouseOver={this._handleChangeState} onMouseLeave={this._handleChangeState} className={`small-movie-card catalog__movies-card ${isActive ? `active` : ``}`}>
+      <div className="small-movie-card__image">
+        <VideoPlayer
+          isPlaying={isPlaying}
+          onPlayButtonClick={() => this.setState({isPlaying: !isPlaying})}
+          src={links}
+          poster={logo}
+        />
       </div>
       <h3 className="small-movie-card__title">
         <a className="small-movie-card__link" href={links}>{title}</a>
@@ -33,8 +39,6 @@ MovieCard.propTypes = {
   title: proptypes.string.isRequired,
   logo: proptypes.string.isRequired,
   links: proptypes.string.isRequired,
-  onPreview: proptypes.func.isRequired,
-  onChangeState: proptypes.func.isRequired,
   isActive: proptypes.bool.isRequired
 };
 

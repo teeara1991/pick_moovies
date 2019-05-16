@@ -13,17 +13,10 @@ export default class VideoPlayer extends React.PureComponent {
     this._onPlayButtonClick = this._onPlayButtonClick.bind(this);
   }
   render() {
-    const {isLoading, isPlaying} = this.state;
     return (
       <React.Fragment>
-        <button
-          className={`track__button track__button--${isPlaying ? `pause` : `play`}`}
-          type="button"
-          disabled={isLoading}
-          onClick={this._onPlayButtonClick}
-        />
-        <div className="track__status">
-          <video
+        <div>
+          <video className="player__video"
             ref={this._videoRef}
           />
         </div>
@@ -31,9 +24,11 @@ export default class VideoPlayer extends React.PureComponent {
     );
   }
   componentDidMount() {
-    const {src} = this.props;
+    const {src, poster} = this.props;
     const video = this._videoRef.current;
     video.src = src;
+    video.poster = poster;
+    video.muted = true;
     video.oncanplaythrough = () => this.setState({
       isLoading: false,
     });
@@ -54,7 +49,7 @@ export default class VideoPlayer extends React.PureComponent {
     if (this.props.isPlaying) {
       video.play();
     } else {
-      video.pause();
+      video.load();
     }
   }
   componentWillUnmount() {
@@ -74,4 +69,5 @@ VideoPlayer.propTypes = {
   isPlaying: proptypes.bool.isRequired,
   onPlayButtonClick: proptypes.func.isRequired,
   src: proptypes.string.isRequired,
+  poster: proptypes.string.isRequired
 };
